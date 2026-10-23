@@ -1,0 +1,122 @@
+/* =========================================================
+   Smart Resume Analyzer – Global Styles & Design Tokens
+   ========================================================= */
+
+:root {
+  /* ── Colour palette ── */
+  --color-bg:            #F7F6F3;
+  --color-bg-alt:        #EFEEE9;
+  --color-surface:       #FFFFFF;
+  --color-surface-hover: #FAFAF8;
+
+  --color-navy:          #121C36;
+  --color-navy-soft:     #1E2A48;
+  --color-navy-muted:    #2E3E5E;
+
+  --color-violet:        #6C5CE7;
+  --color-violet-light:  #A29BFE;
+  --color-violet-bg:     #EDEDFC;
+
+  --color-accent:        #5B6AF5;
+
+  --color-text:          #1A1A2E;
+  --color-text-secondary:#5A5E72;
+  --color-text-muted:    #8E92A4;
+
+  --color-border:        #E2E1DC;
+  --color-border-focus:  var(--color-violet);
+
+  --color-success:       #00B894;
+  --color-success-bg:    #E6FBF4;
+  --color-warning:       #FDCB6E;
+  --color-warning-bg:    #FFF8E7;
+  --color-error:         #E17055;
+  --color-error-bg:      #FDECEA;
+
+  /* ── Typography ── */
+  --font-family:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-xs:      0.75rem;
+  --font-sm:      0.8125rem;
+  --font-base:    0.9375rem;
+  --font-md:      1.0625rem;
+  --font-lg:      1.25rem;
+  --font-xl:      1.5rem;
+  --font-2xl:     2rem;
+  --font-3xl:     2.5rem;
+
+  /* ── Spacing ── */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* ── Radius ── */
+  --radius-sm:  0.375rem;
+  --radius-md:  0.625rem;
+  --radius-lg:  0.875rem;
+  --radius-xl:  1.25rem;
+  --radius-full: 50%;
+
+  /* ── Shadows ── */
+  --shadow-sm:  0 1px 3px rgba(18, 28, 54, 0.04);
+  --shadow-md:  0 4px 12px rgba(18, 28, 54, 0.06);
+  --shadow-lg:  0 8px 30px rgba(18, 28, 54, 0.08);
+  --shadow-xl:  0 16px 48px rgba(18, 28, 54, 0.10);
+
+  /* ── Transitions ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Global reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-violet);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+}
+
+/* ── Utility classes ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
