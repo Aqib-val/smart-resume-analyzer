@@ -1,37 +1,43 @@
 /* =========================================================
    Smart Resume Analyzer – Global Styles & Design Tokens
+   Editorial dark-surface identity with acid-lime accent.
    ========================================================= */
 
 :root {
-  /* ── Colour palette ── */
-  --color-bg:            #F7F6F3;
-  --color-bg-alt:        #EFEEE9;
-  --color-surface:       #FFFFFF;
-  --color-surface-hover: #FAFAF8;
+  /* ── Dark palette ── */
+  --color-bg:             #111310;
+  --color-bg-alt:         #191B17;
+  --color-surface:        #1E201C;
+  --color-surface-hover:  #252722;
+  --color-surface-raised: #2A2C27;
 
-  --color-navy:          #121C36;
-  --color-navy-soft:     #1E2A48;
-  --color-navy-muted:    #2E3E5E;
+  /* ── Light-section palette ── */
+  --color-bg-light:       #F7F7F2;
+  --color-text-on-light:  #171916;
+  --color-muted-on-light: #6B6E65;
 
-  --color-violet:        #6C5CE7;
-  --color-violet-light:  #A29BFE;
-  --color-violet-bg:     #EDEDFC;
+  /* ── Text on dark ── */
+  --color-text:           #F4F3ED;
+  --color-text-secondary: #A5A79F;
+  --color-text-muted:     #6B6E65;
 
-  --color-accent:        #5B6AF5;
+  /* ── Accent ── */
+  --color-accent:         #C8F169;
+  --color-accent-muted:   rgba(200, 241, 105, 0.15);
+  --color-accent-dim:     rgba(200, 241, 105, 0.08);
 
-  --color-text:          #1A1A2E;
-  --color-text-secondary:#5A5E72;
-  --color-text-muted:    #8E92A4;
+  /* ── Borders ── */
+  --color-border:         rgba(244, 243, 237, 0.08);
+  --color-border-accent:  rgba(200, 241, 105, 0.25);
+  --color-border-focus:   var(--color-accent);
 
-  --color-border:        #E2E1DC;
-  --color-border-focus:  var(--color-violet);
-
-  --color-success:       #00B894;
-  --color-success-bg:    #E6FBF4;
-  --color-warning:       #FDCB6E;
-  --color-warning-bg:    #FFF8E7;
-  --color-error:         #E17055;
-  --color-error-bg:      #FDECEA;
+  /* ── Semantic ── */
+  --color-success:        #5AE4A7;
+  --color-success-bg:     rgba(90, 228, 167, 0.1);
+  --color-warning:        #F5C842;
+  --color-warning-bg:     rgba(245, 200, 66, 0.1);
+  --color-error:          #F06050;
+  --color-error-bg:       rgba(240, 96, 80, 0.1);
 
   /* ── Typography ── */
   --font-family:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -42,7 +48,9 @@
   --font-lg:      1.25rem;
   --font-xl:      1.5rem;
   --font-2xl:     2rem;
-  --font-3xl:     2.5rem;
+  --font-3xl:     2.75rem;
+  --font-4xl:     3.5rem;
+  --font-5xl:     4.5rem;
 
   /* ── Spacing ── */
   --space-xs:  0.25rem;
@@ -52,24 +60,34 @@
   --space-xl:  2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
 
   /* ── Radius ── */
-  --radius-sm:  0.375rem;
-  --radius-md:  0.625rem;
-  --radius-lg:  0.875rem;
-  --radius-xl:  1.25rem;
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
   --radius-full: 50%;
 
   /* ── Shadows ── */
-  --shadow-sm:  0 1px 3px rgba(18, 28, 54, 0.04);
-  --shadow-md:  0 4px 12px rgba(18, 28, 54, 0.06);
-  --shadow-lg:  0 8px 30px rgba(18, 28, 54, 0.08);
-  --shadow-xl:  0 16px 48px rgba(18, 28, 54, 0.10);
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow-xl:  0 20px 60px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 40px rgba(200, 241, 105, 0.12);
 
   /* ── Transitions ── */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
+
+  /* ── Layout ── */
+  --max-width: 1200px;
+  --content-pad: var(--space-lg);
+
+  /* ── Scroll position (updated by JS) ── */
+  --scroll-y: 0;
 }
 
 /* ── Global reset ── */
@@ -85,6 +103,7 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -93,10 +112,11 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 a {
-  color: var(--color-violet);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
@@ -119,4 +139,61 @@ button {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* ── Scroll-reveal base ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }
+.reveal--delay-4 { transition-delay: 0.4s; }
+
+/* ── Section divider ── */
+.section-divider {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-pad);
+}
+
+.section-divider::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Responsive content padding ── */
+@media (max-width: 768px) {
+  :root {
+    --content-pad: var(--space-md);
+  }
 }

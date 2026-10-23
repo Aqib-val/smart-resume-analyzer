@@ -37,3 +37,15 @@ Thumbs.db
 # ── Logs ──
 *.log
 npm-debug.log*
+
+# Local development scratch files
+scratch_prompt.txt
+scratch_user_prompt.md
+extract_prompt.py
+pyrightconfig.json
+
+# Local development scratch files
+scratch_prompt.txt
+scratch_user_prompt.md
+extract_prompt.py
+pyrightconfig.json

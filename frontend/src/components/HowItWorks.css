@@ -1,0 +1,160 @@
+/* =========================================================
+   How It Works – Editorial numbered sequence with connecting line
+   ========================================================= */
+
+.how-it-works {
+  position: relative;
+  padding: var(--space-4xl) 0;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.how-it-works__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-pad);
+}
+
+.how-it-works__header {
+  margin-bottom: var(--space-3xl);
+  max-width: 640px;
+}
+
+.how-it-works__label {
+  display: inline-block;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.how-it-works__title {
+  font-size: clamp(1.75rem, 3.5vw, var(--font-3xl));
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.how-it-works__subtitle {
+  font-size: var(--font-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Timeline container ── */
+.how-it-works__timeline {
+  position: relative;
+}
+
+/* ── Connecting line on desktop ── */
+.how-it-works__line {
+  display: block;
+  position: absolute;
+  top: 36px;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.how-it-works__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Step Card ── */
+.how-it-works__step {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.how-it-works__step--active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.how-it-works__step:hover {
+  border-color: var(--color-border-accent);
+  background: var(--color-surface-hover);
+}
+
+.how-it-works__step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.how-it-works__step-num {
+  font-family: monospace;
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+}
+
+.how-it-works__step-badge {
+  font-size: var(--font-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.how-it-works__step-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+.how-it-works__step-desc {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .how-it-works__line {
+    display: none;
+  }
+
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .how-it-works {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-it-works__step {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

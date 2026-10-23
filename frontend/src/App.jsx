@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import './App.css';
+import { useScrollPosition } from './hooks';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import HowItWorks from './components/HowItWorks';
+import AnalysisPreview from './components/AnalysisPreview';
 import UploadForm from './components/UploadForm';
 import ResultsDashboard from './components/ResultsDashboard';
 import Footer from './components/Footer';
 
 export default function App() {
   const [result, setResult] = useState(null);
+  const scrollNorm = useScrollPosition();
 
   function handleResult(data) {
     setResult(data);
@@ -26,12 +31,23 @@ export default function App() {
 
   return (
     <div className="app">
+      {/* Scroll progress indicator */}
+      <div
+        className="scroll-progress"
+        style={{ transform: `scaleX(${scrollNorm})`, width: '100%' }}
+        aria-hidden="true"
+      />
+
+      <Navbar showBack={!!result} onBack={handleReset} />
+
       <main className="app__main">
         {result ? (
           <ResultsDashboard data={result} onReset={handleReset} />
         ) : (
           <>
             <Hero />
+            <HowItWorks />
+            <AnalysisPreview />
             <UploadForm
               onResult={handleResult}
               onError={() => {}}
@@ -39,6 +55,7 @@ export default function App() {
           </>
         )}
       </main>
+
       <Footer />
     </div>
   );

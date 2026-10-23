@@ -1,0 +1,11 @@
+{
+  "name": "smart-resume-analyzer-root",
+  "private": true,
+  "description": "Root scripts for Smart Resume Analyzer",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "lint": "npm --prefix frontend run lint",
+    "preview": "npm --prefix frontend run preview"
+  }
+}

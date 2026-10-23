@@ -1,20 +1,53 @@
 /* =========================================================
-   Footer
+   Footer – Editorial minimal surface
    ========================================================= */
 
 .footer {
-  text-align: center;
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-3xl) 0;
   border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
   margin-top: auto;
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text);
+  font-size: var(--font-sm);
+  font-weight: 600;
+}
+
+.footer__logo-mark {
+  color: var(--color-accent);
 }
 
 .footer__text {
   font-size: var(--font-xs);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
 }
 
-.footer__text strong {
-  color: var(--color-text-secondary);
-  font-weight: 600;
+.footer__note {
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  font-family: monospace;
+}
+
+@media (max-width: 768px) {
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
 }
